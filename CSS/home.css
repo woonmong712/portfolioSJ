@@ -1,0 +1,34 @@
+/* home.css */
+#home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* 최소 높이를 화면의 전체 높이로 설정 */
+    background-color: #378BA4;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh; /* 섹션의 높이를 화면 높이의 80%로 설정 */
+    margin-bottom: 20px; /* 아래쪽에 20px 마진 추가 */
+}
+
+.left, .right {
+    text-align: left;
+}
+
+form, label, input, textarea, button {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.content div p, .content div h2, .content div a {
+    color: #E8EDE7;
+}
+
+.content .left h1 {
+    font-weight: bold;
+    color: #E8EDE7;
+}
