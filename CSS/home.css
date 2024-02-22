@@ -1,34 +1,54 @@
 /* home.css */
 #home {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh; /* 최소 높이를 화면의 전체 높이로 설정 */
     background-color: #378BA4;
+    position: relative; /* 위치를 상대적으로 지정 */
+    height: 100vh; /* 화면의 전체 높이를 차지하도록 설정 */
+    z-index: 1; /* 겹침 우선순위 설정 */
 }
 
-.content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 80vh; /* 섹션의 높이를 화면 높이의 80%로 설정 */
-    margin-bottom: 20px; /* 아래쪽에 20px 마진 추가 */
+.home_instruction {
+    position: absolute;
+    left: 30%; /* 왼쪽에서부터의 위치를 퍼센트로 지정 */
+    top: 29%; /* 상단에서부터의 위치를 퍼센트로 지정 */
+    font-size: 70px;
+    text-align: left;
+    color: #E8EDE7;
 }
 
-.left, .right {
+.home_career {
+    color: #E8EDE7;
+    position: absolute;
+    left: 30%; /* 이전의 412px 대신 */
+    top: 46%; /* 이전의 320px 대신 */
+    font-size: 30px;
     text-align: left;
 }
 
-form, label, input, textarea, button {
-    display: block;
-    margin-bottom: 10px;
+.home_contact {
+    color: #E8EDE7;
+    position: absolute;
+    left: 60%; /* 이전의 1000px 대신 */
+    top: 40%; /* 이전의 280px 대신 */
+    font-size: 20px;
+    text-align: left;
+    margin: 10px 0;
 }
 
-.content div p, .content div h2, .content div a {
+.home_contact-info {
+    position: absolute;
     color: #E8EDE7;
+    left: 60%; /* 이전의 1000px 대신 */
+    top: 45%; /* 이전의 320px 대신 */
+    font-size: 15px;
+    text-align: left;
+    margin: 10px 0;
 }
 
-.content .left h1 {
-    font-weight: bold;
+#home a {
     color: #E8EDE7;
+    text-decoration: none;
+}
+
+#home a:hover {
+    text-decoration: underline;
 }

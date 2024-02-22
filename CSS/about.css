@@ -1,7 +1,8 @@
 /* about.css */
+
 #about {
-    min-height: 100vh; /* 최소 높이를 화면의 전체 높이로 설정 */
     background-color: #E8EDE7;
     color: #012E4A;
-    padding: 20px;
+    position: relative; /* 위치를 상대적으로 지정 */
+    z-index: 2; /* 겹침 우선순위 설정 */
 }

@@ -10,30 +10,36 @@ html {
     scroll-behavior: smooth;
 }
 
-@media screen and (max-width: 390px) { /* 아이폰 13 Pro의 가로 길이에 맞춤 */
-    /* 메뉴 스타일 */
+/* 기존 스타일에 추가 */
+@media screen and (max-width: 768px) {
     nav ul {
-        display: flex;
         flex-direction: column;
-        /* 필요한 추가 스타일 */
+        padding: 0;
     }
 
-    /* 폰트 크기 조정 */
-    body, h1, h2, p {
-        font-size: smaller; /* 예시, 실제로는 적절한 크기 지정 */
+    nav ul li {
+        text-align: center;
+        padding: 10px;
+    }
+
+    .home_instruction, .home_career, .home_contact, .home_contact-info {
+        left: 5%; /* 왼쪽 정렬 조정 */
+        width: 90%; /* 너비 조정 */
+        text-align: center; /* 텍스트 중앙 정렬 */
+    }
+
+    .home_instruction {
+        font-size: 40px; /* 글씨 크기 조정 */
+        top: 10%; /* 위치 조정 */
+    }
+
+    .home_career, .home_contact, .home_contact-info {
+        font-size: 18px; /* 글씨 크기 조정 */
+    }
+
+    .home_contact, .home_contact-info {
+        top: auto; /* 위치 자동 조정 */
+        position: relative; /* 위치 조정 */
     }
 }
 
-/* 모바일 환경에서의 텍스트 스타일 */
-@media screen and (max-width: 390px) {
-    h1, h2, p {
-        line-height: 1.2; /* 줄 간격 조정 */
-        margin: 0.5em 0; /* 위아래 마진 조정 */
-    }
-}
-
-nav ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around; /* 메뉴 아이템 간격 조정 */
-}

@@ -7,7 +7,7 @@ header {
     color: #E8EDE7;
     font-size: 20px;
     z-index: 1000;
-    padding: 10px 0;
+    padding: 20px 0; /* 상단과 하단 여백을 20px로 조정 */
     box-sizing: border-box;
 }
 
@@ -24,7 +24,7 @@ nav ul li {
 
 nav ul li a {
     display: inline-block;
-    padding: 5px 40px;
+    padding: 5px 50px; /* 좌우 패딩을 40px에서 50px로 증가시켜 여백을 더 넓혔습니다 */
     color: #E8EDE7;
     text-decoration: none;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
