@@ -1,7 +1,58 @@
-/* experience.css */
 #experience {
-    min-height: 100vh; /* 최소 높이를 화면의 전체 높이로 설정 */
+    text-align: center;
+    padding: 50px 0;
     background-color: #012E4A;
-    color: #E8EDE7;
-    padding: 20px;
+    position: relative;
+    height: 100vh;
+    z-index: 3;
 }
+
+.experience-title {
+    color: #E8EDE7;
+    font-size: 4vw;
+    margin: 0 auto;
+    position: absolute;
+    top: 30%;
+    left: 0;
+    right: 0;
+}
+
+.experience-section {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.experience-divider {
+    position: absolute;
+    top: 65%;
+    left: 10%;
+    right: 10%;
+    border-top: 2px solid #E8EDE7; /* 선을 더 두껍게 만들어서 원이 통과하는 것처럼 보이게 함 */
+}
+
+.circle-container {
+    position: absolute;
+    bottom: -10px; /* 원을 선 중앙으로 조정 */
+    transform: translateX(-50%);
+}
+
+.circle {
+    width: 20px; /* 원 크기 조정 */
+    height: 20px;
+    border-radius: 50%;
+    background-color: #E8EDE7;
+    position: relative;
+    z-index: 2; /* 선 위에 오도록 z-index 설정 */
+}
+
+.experience-text {
+    font-size: 1vw;
+    color: #E8EDE7;
+    position: absolute;
+    top: 30px; /* 원 아래에 텍스트 위치 조정 */
+    left: -97%; /* 왼쪽으로 조금 더 이동 */
+    width: 100%; /* 컨테이너의 전체 너비를 사용 */
+    text-align: center; /* 텍스트를 가운데 정렬 */
+    white-space: nowrap; /* 텍스트가 한 줄로 나타나도록 설정 */
+}
+

@@ -78,7 +78,7 @@
 }
 
 /* contact title */
-.contact_title {
+.contact-title {
     position: absolute;
     left: 10%; /* 왼쪽에서부터의 위치를 퍼센트로 지정 */
     top: 42%; /* 상단에서부터의 위치를 퍼센트로 지정 */
