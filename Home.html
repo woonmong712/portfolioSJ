@@ -13,6 +13,10 @@
 <link rel="stylesheet" href="CSS/experience.css">
 <link rel="stylesheet" href="CSS/portfolio.css">
 <link rel="stylesheet" href="CSS/contact.css">
+
+<!-- JS 불러오기 -->
+<script src="contactInfo.js"></script>
+
 </head>
   
 <body>
@@ -51,25 +55,22 @@
 </section>
 
 <section id="contact">
-    <div class="contact-content">
-        <div class="text-info">
-            <p>Thank you for viewing<br>my portfolio.</p>
-            <p>Contact</p>
-            <div class="contact-info">
-                <p>E-mail<br><a href="mailto:keita712@gmail.com">keita712@gmail.com</a></p>
-                <p>Phone<br>010-6313-9683</p>
-            </div>
+    <div class="content">
+        <p class="thank-you-message"><B>Thank you for viewing<br>my portfolio.</B></p>
+        <div class="contact-info">
+            <p><b>CONTACT</b></p>
+            <p><b>E-mail</b><br><a href="mailto:keita712@gmail.com">keita712@gmail.com</a></p>
+            <p><b>Phone</b><br>010-6313-9683</p>
         </div>
+        <!-- 버튼 그룹 -->
         <div class="buttons">
-            <button class="contact-btn" title="Email">E-mail</button>
-            <button class="contact-btn" title="LinkedIn">LinkedIn</button>
-            <a href="https://github.com/woonmong712" target="_blank">
-                <button class="contact-btn" title="GitHub">GitHub</button>
-            </a>
-            <button class="contact-btn" title="Blog">Blog</button>
+            <button class="contact-btn" title="Email" onclick="sendEmail()">E-mail</button>
+            <button class="contact-btn" title="LinkedIn" onclick="openLinkedIn()">LinkedIn</button>
+            <button class="contact-btn" title="GitHub" onclick="openGitHub()">GitHub</button>
+            <button class="contact-btn" title="Blog" onclick="openBlog()">Blog</button>
         </div>
-        
     </div>
 </section>
+
 </body>
 </html>

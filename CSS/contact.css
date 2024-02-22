@@ -4,10 +4,12 @@
     color: #E8EDE7; /* 글씨색 */
     padding: 50px 20px; /* 상하 50px, 좌우 20px의 패딩으로 조정 */
     text-align: center; /* 텍스트 중앙 정렬 */
-    height: 100vh; /* 페이지 높이를 브라우저 높이와 동일하게 설정 */
     display: flex; /* Flexbox 사용 */
     flex-direction: column; /* 수직 방향으로 아이템 정렬 */
     justify-content: center; /* 수직 가운데 정렬 */
+    position: relative; /* 이 내부의 절대 위치 요소들의 기준점이 됨 */
+    width: 100%; /* 너비 설정 */
+    height: 900px; /* 섹션의 높이 */
 }
 
 .contact-btn-container {
@@ -29,7 +31,6 @@
 
 #contact p {
     margin: 10px 0; /* 위아래 마진을 줘서 텍스트 간 간격을 조정 */
-    color: #E8EDE7; /* 글씨 색상 */
 }
 
 #contact a {
@@ -41,15 +42,8 @@
     text-decoration: underline; /* 마우스 오버 시 밑줄 */
 }
 
-
-
-#contact .content {
-    text-align: center; /* 내용을 중앙 정렬 */
-    padding: 50px 0; /* 상하 패딩을 추가하여 내용이 중앙에 오도록 조정 */
-}
-
-#contact .contact-info p, #contact .contact-btn-container {
-    margin: 20px 0; /* 문단과 버튼 컨테이너 사이의 마진 조정 */
+#contact .contact-info p, .contact-btn-container {
+    margin: 15px 0; /* 문단과 버튼 컨테이너 사이의 마진 조정 */
 }
 
 #contact .contact-btn {
@@ -70,3 +64,48 @@
 #contact .contact-btn:focus {
     outline: none; /* 버튼 선택 시 윤곽선 제거 */
 }
+
+/* Thank-you-message 스타일 조정 */
+.thank-you-message {
+    position: absolute; /* 절대 위치 */
+    left: 412px; /* 왼쪽에서 412px 떨어진 곳에 위치 */
+    top: 200px; /* 상단에서 215px 떨어진 곳에 위치 */
+    font-size: 50px; /* 글씨 크기 */
+    text-align: left; /* 텍스트 왼쪽 정렬 */
+}
+
+/* Contact 텍스트 스타일 조정 */
+.contact-info {
+    position: absolute; /* 절대 위치 */
+    left: 412px; /* 왼쪽에서 412px 떨어진 곳에 위치 */
+    top: calc(200px + 140px); /* thank-you-message의 하단에서 130px 아래에 위치 */
+    font-size: 15px; /* 글씨 크기 */
+    text-align: left; /* 텍스트 왼쪽 정렬 */
+} 
+
+/* 버튼 그룹 스타일 */
+.buttons {
+    display: flex;
+    flex-direction: row; /* 버튼들을 가로로 나열 */
+    align-items: center; /* 버튼들을 수직 가운데 정렬 */
+    justify-content: flex-start; /* 왼쪽 정렬 */
+    gap: 10px; /* 버튼들 사이의 간격 */
+    position: absolute;
+    left: 412px;
+    top: 500px;
+}
+
+/* 개별 버튼 스타일 */
+.contact-btn {
+    padding: 8px 16px; /* 내부 패딩 */
+    width: 120px; /* 버튼의 너비 고정 */
+    background-color: #E8EDE7; /* 배경색 */
+    color: #012E4A; /* 글자색 */
+    border: none; /* 테두리 없음 */
+    border-radius: 20px; /* 둥근 모서리 */
+    cursor: pointer; /* 마우스 오버 시 커서 변경 */
+    transition: background-color 0.3s, color 0.3s; /* 배경 및 글자색 변화 애니메이션 */
+    text-align: center; /* 텍스트 중앙 정렬 */
+}
+
+
