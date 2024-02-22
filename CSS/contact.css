@@ -72,8 +72,17 @@
 .thank-you-message {
     position: absolute;
     left: 10%; /* 왼쪽에서부터의 위치를 퍼센트로 지정 */
-    top: 10%; /* 상단에서부터의 위치를 퍼센트로 지정 */
-    font-size: 3vw; /* 글씨 크기를 화면 너비의 비율로 조정 */
+    top: 20%; /* 상단에서부터의 위치를 퍼센트로 지정 */
+    font-size: 3.7vw; /* 글씨 크기를 화면 너비의 비율로 조정 */
+    text-align: left;
+}
+
+/* contact title */
+.contact_title {
+    position: absolute;
+    left: 10%; /* 왼쪽에서부터의 위치를 퍼센트로 지정 */
+    top: 42%; /* 상단에서부터의 위치를 퍼센트로 지정 */
+    font-size: 1.2vw; /* 글씨 크기를 화면 너비의 비율로 조정 */
     text-align: left;
 }
 
@@ -81,8 +90,8 @@
 .contact-info {
     position: absolute;
     left: 10%; /* 왼쪽에서부터의 위치를 퍼센트로 지정 */
-    top: 60%; /* 상단에서부터의 위치를 퍼센트로 지정 */
-    font-size: 1.5vw; /* 글씨 크기를 화면 너비의 비율로 조정 */
+    top: 51%; /* 상단에서부터의 위치를 퍼센트로 지정 */
+    font-size: 1vw; /* 글씨 크기를 화면 너비의 비율로 조정 */
     text-align: left;
 }
 
@@ -92,16 +101,16 @@
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    gap: 2%; /* 버튼들 사이의 간격을 퍼센트로 조정 */
+    gap: 3%; /* 버튼들 사이의 간격을 퍼센트로 조정 */
     position: absolute;
     left: 10%; /* 왼쪽에서부터의 위치를 퍼센트로 지정 */
-    top: 70%; /* 상단에서부터의 위치를 퍼센트로 지정 */
+    top: 65%; /* 상단에서부터의 위치를 퍼센트로 지정 */
 }
 
 /* 개별 버튼 스타일 */
 .contact-btn {
-    padding: 2% 4%;
-    width: 15%; /* 버튼의 너비를 화면의 너비에 따라 조정 */
+    padding: 1em; /* 상하좌우 여백을 동일하게 설정 */
+    width: 50%; /* 버튼의 너비를 부모 요소의 50%로 설정 */
     background-color: #E8EDE7;
     color: #012E4A;
     border: none;
@@ -109,4 +118,6 @@
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
     text-align: center;
+    display: block; /* 블록 레벨 요소로 만들어 너비가 적용되도록 함 */
+    margin: 0 auto; /* 상하 마진 0, 좌우 마진 자동으로 버튼을 중앙 정렬 */
 }

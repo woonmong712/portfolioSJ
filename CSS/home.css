@@ -10,7 +10,7 @@
     position: absolute;
     left: 30%; /* 왼쪽에서부터의 위치를 퍼센트로 지정 */
     top: 29%; /* 상단에서부터의 위치를 퍼센트로 지정 */
-    font-size: 70px;
+    font-size: 6vw; /* vw 단위로 변경 */
     text-align: left;
     color: #E8EDE7;
 }
@@ -20,7 +20,7 @@
     position: absolute;
     left: 30%; /* 이전의 412px 대신 */
     top: 46%; /* 이전의 320px 대신 */
-    font-size: 30px;
+    font-size: 2.5vw; /* vw 단위로 변경 */
     text-align: left;
 }
 
@@ -29,7 +29,7 @@
     position: absolute;
     left: 60%; /* 이전의 1000px 대신 */
     top: 40%; /* 이전의 280px 대신 */
-    font-size: 20px;
+    font-size: 1.5vw; /* vw 단위로 변경 */
     text-align: left;
     margin: 10px 0;
 }
@@ -39,7 +39,7 @@
     color: #E8EDE7;
     left: 60%; /* 이전의 1000px 대신 */
     top: 45%; /* 이전의 320px 대신 */
-    font-size: 15px;
+    font-size: 1vw; /* vw 단위로 변경 */
     text-align: left;
     margin: 10px 0;
 }
