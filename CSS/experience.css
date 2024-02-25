@@ -1,58 +1,19 @@
-#experience {
-    text-align: center;
-    padding: 50px 0;
-    background-color: #012E4A;
-    position: relative;
-    height: 100vh;
-    z-index: 3;
-}
-
-.experience-title {
-    color: #E8EDE7;
-    font-size: 4vw;
-    margin: 0 auto;
-    position: absolute;
-    top: 30%;
-    left: 0;
-    right: 0;
+.experience-wrapper {
+    display: inline-block; /* 각 경험 페이지가 한 줄로 배열되도록 설정 */
 }
 
 .experience-section {
+    width: 100vw; /* 뷰포트 가로 너비의 100% */
+    height: 100vh; /* 뷰포트 높이의 100% */
+    display: inline-block; /* 영역이 가로로 나열되도록 설정 */
+    vertical-align: top; /* 상단 정렬 */
     text-align: center;
-    margin: 40px 0;
+    padding: 20px; /* 내부 여백 추가 */
+    box-sizing: border-box; /* 내부 여백을 요소의 크기에 포함시킵니다. */
 }
 
-.experience-divider {
-    position: absolute;
-    top: 65%;
-    left: 10%;
-    right: 10%;
-    border-top: 2px solid #E8EDE7; /* 선을 더 두껍게 만들어서 원이 통과하는 것처럼 보이게 함 */
+.content {
+    overflow-x: auto;
+    white-space: nowrap;
+    user-select: none; /* 드래그 시 텍스트 선택 방지 */
 }
-
-.circle-container {
-    position: absolute;
-    bottom: -10px; /* 원을 선 중앙으로 조정 */
-    transform: translateX(-50%);
-}
-
-.circle {
-    width: 20px; /* 원 크기 조정 */
-    height: 20px;
-    border-radius: 50%;
-    background-color: #E8EDE7;
-    position: relative;
-    z-index: 2; /* 선 위에 오도록 z-index 설정 */
-}
-
-.experience-text {
-    font-size: 1vw;
-    color: #E8EDE7;
-    position: absolute;
-    top: 30px; /* 원 아래에 텍스트 위치 조정 */
-    left: -97%; /* 왼쪽으로 조금 더 이동 */
-    width: 100%; /* 컨테이너의 전체 너비를 사용 */
-    text-align: center; /* 텍스트를 가운데 정렬 */
-    white-space: nowrap; /* 텍스트가 한 줄로 나타나도록 설정 */
-}
-

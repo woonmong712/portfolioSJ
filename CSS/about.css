@@ -1,10 +1,70 @@
 /* about.css */
-
 #about {
-    background-color: #E8EDE7;
+    background-color: #FFFFFF; /* 색상 코드 앞에 # 추가 */
     color: #012E4A;
     position: relative; /* 위치를 상대적으로 지정 */
     height: 100vh; /* 화면의 전체 높이를 차지하도록 설정 */
     z-index: 2; /* 겹침 우선순위 설정 */
 }
 
+/* 이미지 스타일 */
+#about img {
+    position: absolute;
+    top: 200px; /* 원하는 y 위치 */
+    left: 350px; /* 원하는 x 위치 */
+    width: 230px; /* 이미지 너비 지정 */
+    height: 220px; /* 이미지 높이 지정 */
+}
+
+/* 텍스트 스타일 */
+.text, .Personal, .Education, .Certification, .Experience, .Skills {
+    position: absolute;
+    font-size: 16px; /* 일관된 폰트 크기 설정, 필요에 따라 조정 */
+    color: #036280;
+    text-align: left; /* 왼쪽 정렬 */
+}
+
+.Personal-info, .Education-info, .Certification-info, .Experience-info, .Skill-info {
+    position: absolute;
+    font-size: 13px; /* 일관된 폰트 크기 설정, 필요에 따라 조정 */
+    color: #036280;
+    text-align: left; /* 왼쪽 정렬 */
+}
+
+/* 제목 텍스트에 대한 추가 스타일 */
+.Personal, .Education, .Certification, .Experience, .Skills {
+    font-weight: bold; /* 굵은 글꼴 */
+    font-size: 20px; /* 크기 조정 필요시 수정 */
+}
+
+/* 개별 위치 적용 */
+.Personal, .Personal-info, .Education, .Education-info, .Certification, .Certification-info {
+    left: 690px; /* 공통 x 위치 */
+}
+
+.Experience, .Experience-info, .Skills, .Skill-info {
+    left: 1090px; /* 공통 x 위치 */
+}
+
+.Personal, .Experience { top: 150px; }
+.Personal-info, .Experience-info { top: 220px; }
+.Education, .Skills{ top: 320px; } /* 실제 필요에 따라 조정 */
+.Education-info, .Skill-info { top: 356px; } /* 추가 정보에 따라 top 값을 조정 */
+.Certification { top: 480px; } /* 추가 정보에 따라 top 값을 조정 */
+.Certification-info{ top: 530px;}
+
+.text {
+    top : 420px; 
+    left: 350px;
+    font-weight : bold;
+    font-size : 20px;
+}
+
+#about a {
+    text-decoration: none;
+    color: #036280; /* 링크 색상 설정 */
+}
+
+#about a:hover {
+    text-decoration: underline;
+}
