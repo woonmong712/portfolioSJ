@@ -11,13 +11,13 @@
 #about img {
     position: absolute;
     top: 200px; /* 원하는 y 위치 */
-    left: 350px; /* 원하는 x 위치 */
+    left: 400px; /* 원하는 x 위치 */
     width: 230px; /* 이미지 너비 지정 */
     height: 220px; /* 이미지 높이 지정 */
 }
 
 /* 텍스트 스타일 */
-.text, .Personal, .Education, .Certification, .Experience, .Skills {
+.Personal, .Education, .Certification, .Experience, .Skills {
     position: absolute;
     font-size: 16px; /* 일관된 폰트 크기 설정, 필요에 따라 조정 */
     color: #036280;
@@ -38,11 +38,11 @@
 }
 
 /* 개별 위치 적용 */
-.Personal, .Personal-info, .Education, .Education-info, .Certification, .Certification-info {
-    left: 690px; /* 공통 x 위치 */
+.Personal, .Personal-info, .Education , .Education-info, .Certification, .Certification-info {
+    left: 700px; /* 공통 x 위치 */
 }
 
-.Experience, .Experience-info, .Skills, .Skill-info {
+.Experience, .Experience-info, .Skills , .Skill-info {
     left: 1090px; /* 공통 x 위치 */
 }
 
@@ -53,18 +53,22 @@
 .Certification { top: 480px; } /* 추가 정보에 따라 top 값을 조정 */
 .Certification-info{ top: 530px;}
 
-.text {
-    top : 420px; 
-    left: 350px;
-    font-weight : bold;
-    font-size : 20px;
+/* mind 텍스트 스타일 */
+.mind, .mind-info {
+    position: absolute;
+    font-size: 13px;
+    color: #036280;
+    text-align: left;
 }
 
-#about a {
-    text-decoration: none;
-    color: #036280; /* 링크 색상 설정 */
+.mind { 
+    top: 410px; 
+    left: 400px;
+    font-weight: bold;
+    font-size: 20px;
 }
 
-#about a:hover {
-    text-decoration: underline;
+.mind-info { 
+    top: 460px; 
+    left: 400px;
 }
