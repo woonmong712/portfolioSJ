@@ -1,0 +1,64 @@
+/* 공통적으로 적용되는 스타일 */
+body {
+    font-family: 'NexonLv1Gothic', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* common.css */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6.5%; /* 높이는 고정값을 유지 */
+    background-color: #378BA4;
+    z-index: 1000;
+}
+
+/* nav를 중앙 정렬하도록 변경 */
+nav {
+    max-width: 960px; /* 최대 너비를 설정하여 내용이 너무 퍼지지 않도록 조정 */
+    margin: 0 auto; /* 좌우 마진을 자동으로 설정하여 가운데 정렬 */
+    width: 100%;
+}
+
+nav ul {
+    list-style: none;
+    padding: 2%;
+    margin: 0;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    height: 100%;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #E8EDE7;
+    font-size: 16px;
+    padding: 5px 10px;
+    border-radius: 15px;
+}
+
+nav ul li a:hover, nav ul li a:focus {
+    background-color: #036280;
+    color: #ffffff;
+}
+
+/* 각 페이지 . 공통 스타일 */
+section {
+    width: 100%;
+    min-height: 900px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #E8EDE7; /* 기본 폰트 색 */
+    font-family: 'NexonLv1Gothic', sans-serif;
+}

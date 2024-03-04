@@ -1,27 +1,20 @@
 <!DOCTYPE html>
-<html lang="ko">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KIM SUNG JIN Portfolio Web Page</title>
+  </head>
 
-<title>KIM SUNG JIN Portfolio</title>
+  <!-- 웹 페이지 스타일 적용 -->
+  <link rel="stylesheet" href="woonmongCSS/common.css">
+  <link rel="stylesheet" href="woonmongCSS/home.css">
+  <link rel="stylesheet" href="woonmongCSS/about.css">
+  <link rel="stylesheet" href="woonmongCSS/experience.css">
+  <link rel="stylesheet" href="woonmongCSS/portfolio.css">
+  <link rel="stylesheet" href="woonmongCSS/contact.css">
 
-<!-- 각 섹션 별 CSS 불러오기 -->
-<link rel="stylesheet" href="CSS/common.css">
-<link rel="stylesheet" href="CSS/header.css">
-<link rel="stylesheet" href="CSS/home.css">
-<link rel="stylesheet" href="CSS/about.css">
-<link rel="stylesheet" href="CSS/experience.css">
-<link rel="stylesheet" href="CSS/portfolio.css">
-<link rel="stylesheet" href="CSS/contact.css">
-
-<!-- JS 불러오기 -->
-<script src="contactInfo.js"></script>
-<script src="experience.js"></script>
-
-</head>
-  
-<body>
+  <body>
     <header>
         <nav>
             <ul>
@@ -33,95 +26,25 @@
             </ul>
         </nav>
     </header>
-
-    <!-- 홈 섹션 -->
-    <section id="home">
-        <div class="content">
-            <p class="home-instruction"><B>KIM SUNG JIN</B></p>
-            <p class="home-career">QA Engineer</p>
-            <p Class="home-contact"><b>CONTACT</b></p>
-            <div class="home-contact-info">
-                <p><b>E-mail</b><br><a href="mailto:keita712@gmail.com">keita712@gmail.com</a></p>
-                <p><b>Phone</b><br>010-6313-9683</p>
-                <p><b>Blog</b><br><a href="https://velog.io/@woonmong/posts">https://velog.io/@woonmong/posts</a>
-                    <br><a href="https://github.com/woonmong712">https://github.com/woonmong712</a></p>
+    <main>
+        <!-- HOME 영역 -->
+        <section id="home">
+            <div class="home-content">
+                <div class="name-intro">
+                    <h1>KIM SUNG JIN</h1>
+                    <p>Do, Whatever You want!</p>
+                </div>
+                <div class="job-title">
+                    <h2>QA Engineer</h2>
+                </div>
             </div>
-        </div>
-    </section>
-
-<!-- about page -->
-<section id="about">
-    <div class="content">
-        <img src="sungjin_image.png" alt="KIM SUNGJIN">
-        <p class="mind">Do, Whatever You Want</p>
-        <p class="mind-info">내가 원하는 것이라면, 그게 무엇이든<br>일단 시작해 보는 것이 중요하다고 생각합니다.<br>지금의 기회를 놓치지 않고 하루하루<br>한 걸음씩 나아가는 사람이 되고 싶습니다.</p>
-        <p class="Personal">김성진<br>KIM SUNG JIN</p>
-        <p class="Personal-info">1992.07.12<br>010-6313-9683<br><a href="https://velog.io/@woonmong/posts">https://velog.io/@woonmong/posts</a><br><a href="https://github.com/woonmong712">https://github.com/woonmong712</a></p>
-        <p class="Education">EDUCATION</p>
-        <p class="Education-info">2024.02 QA 테스트 자동화 구축하고 QA 실무 역량 퀀텀 점프하기<br> : Selenium with Python<br>2023.09 Tableau 신병 훈련소 20기 과정<br>2023.04 ChatGPT X 소프트웨어 개발 : SW개발 생산성 혁명<br>2020.08 애자일 입문 (Agile Fundamentals)<br>2018.11 실무 중심의 테스트 기초 교육 (STA)</p>
-        <p class="Certification">CERTIFICATION</p>
-        <p class="Certification-info">2019.04 ISTQB FL 취득<br>2009.02 JLPT 2급 취득</p>
-        <p class="Experience">WORK<br>EXPERIENCE</p>
-        <p class="Experience-info">2022.03 ~ 2023.09 카카오VX (SQA팀 FA 클라이언트 파트 팀원)<br>2019.02 ~ 2022.02 (주)단비교육 (최고개발팀 대리 파트리더)<br>2016.11 ~ 2018.11  골프존 네트웍스 (QA 2팀 매니저)</p>
-        <p class="Skills">SKILLS/TOOLS</p>
-        <p class="Skill-info"><b>Tool</b><br>Fiddler Jira Confluence <br>Excel Slack Excel notion<br><br><b>Skill</b><br>python selenium Django</p>
-    </div>
-</section>
-
-<!-- Experience page -->
-<section id="experience">
-    <div class="content">
-        <p class="experience-title"><b>EXPERIENCE</b></p>          
-        <div class="experience-wrapper">
-            <div class="experience-section" id="experience-1">
-                <h2>Page 1</h2>
-                <p>여기에 첫 번째 경험 내용이 들어갑니다.2</p>
-            </div>
-            <div class="experience-section" id="experience-2">
-                <h2>Page 2</h2>
-                <p>여기에 두 번째 경험 내용이 들어갑니다.</p>
-            </div>
-            <div class="experience-section" id="experience-3">
-                <h2>Page 3</h2>
-                <p>여기에 세 번째 경험 내용이 들어갑니다.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<section id="portfolio">
-    <div class="content">
-        <h2>포트폴리오 섹션</h2>
-        <div class="portfolio-container">
-            <div class="portfolio-item">1번 페이지</div>
-            <div class="portfolio-item">2번 페이지</div>
-            <div class="portfolio-item">3번 페이지</div>
-            <div class="portfolio-item">4번 페이지</div>
-            <div class="portfolio-item">5번 페이지</div>
-            <div class="portfolio-item">6번 페이지</div>
-        </div>
-    </div>
-</section>
-
-
-<section id="contact">
-    <div class="content">
-        <p class="thank-you-message"><B>Thank you for viewing<br>My portfolio.</B></p>
-        <p class="contact-title"><b>CONTACT</b></p>
-        <div class="contact-info">
-            <p><b>E-mail</b><br><a href="mailto:keita712@gmail.com">keita712@gmail.com</a></p>
-            <p><b>Phone</b><br>010-6313-9683</p>
-        </div>
-        <!-- 버튼 그룹 -->
-        <div class="buttons">
-            <button class="contact-btn" title="Email" onclick="sendEmail()">E-mail</button>
-            <button class="contact-btn" title="LinkedIn" onclick="openLinkedIn()">LinkedIn</button>
-            <button class="contact-btn" title="GitHub" onclick="openGitHub()">GitHub</button>
-            <button class="contact-btn" title="Blog" onclick="openBlog()">Blog</button>
-        </div>
-    </div>
-</section>
-
-</body>
+        </section>
+        
+        <section id="about">AboutPage</section>
+        <section id="experience">ExperiencePage</section>
+        <section id="portfolio">PortfolioPage</section>
+        <section id="contact">ContactPage</section>
+    </main>
+    <footer>하단</footer>
+  </body>
 </html>

@@ -1,0 +1,28 @@
+#home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 900px; /* 높이 조정 가능 */
+    background-color: #378BA4; /* 배경색, 필요에 따라 변경 */
+    color: #E8EDE7; /* 폰트 색상 */
+}
+
+/* 이름과 직업 타이틀을 감싸는 컨테이너 */
+.name-job-container {
+    text-align: center; /* 중앙 정렬 */
+}
+
+.name-intro h1 {
+    font-size: 70px; /* 이름의 폰트 크기 */
+    margin: 0 0 10px 0; /* 아래쪽 여백 조정 */
+}
+
+.name-intro p, .job-title h2 {
+    font-size: 25px; /* 설명 및 직업의 폰트 크기 */
+    margin: 0; /* 마진 제거 */
+}
+
+.job-title h2 {
+    color: #012E4A; /* job title의 색상 변경 */
+}
