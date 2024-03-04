@@ -1,74 +1,64 @@
-/* about.css */
+/* about.css 수정 */
 #about {
-    background-color: #FFFFFF; /* 색상 코드 앞에 # 추가 */
+    background-color: #FFFFFF;
     color: #012E4A;
-    position: relative; /* 위치를 상대적으로 지정 */
-    height: 100vh; /* 화면의 전체 높이를 차지하도록 설정 */
-    z-index: 2; /* 겹침 우선순위 설정 */
+    position: relative;
+    height: 100vh;
+    z-index: 2;
 }
 
 /* 이미지 스타일 */
 #about img {
     position: absolute;
-    top: 200px; /* 원하는 y 위치 */
-    left: 400px; /* 원하는 x 위치 */
-    width: 230px; /* 이미지 너비 지정 */
-    height: 220px; /* 이미지 높이 지정 */
+    top: 15%; /* 예시 비율, 실제 비율은 디자인에 따라 조정 필요 */
+    left: 25%; /* 예시 비율 */
+    width: 14%; /* 화면 너비의 14% */
+    height: auto; /* 비율 유지를 위해 자동 조정 */
 }
 
 /* 텍스트 스타일 */
-.Personal, .Education, .Certification, .Experience, .Skills {
-    position: absolute;
-    font-size: 16px; /* 일관된 폰트 크기 설정, 필요에 따라 조정 */
-    color: #036280;
-    text-align: left; /* 왼쪽 정렬 */
-}
-
+.Personal, .Education, .Certification, .Experience, .Skills,
 .Personal-info, .Education-info, .Certification-info, .Experience-info, .Skill-info {
     position: absolute;
-    font-size: 13px; /* 일관된 폰트 크기 설정, 필요에 따라 조정 */
+    font-size: 1.3vw; /* 화면 너비에 따라 조정되도록 vw 단위 사용 */
     color: #036280;
-    text-align: left; /* 왼쪽 정렬 */
+    text-align: left;
 }
 
 /* 제목 텍스트에 대한 추가 스타일 */
 .Personal, .Education, .Certification, .Experience, .Skills {
-    font-weight: bold; /* 굵은 글꼴 */
-    font-size: 20px; /* 크기 조정 필요시 수정 */
+    font-weight: bold;
+    font-size: 1vw;
 }
 
-/* 개별 위치 적용 */
-.Personal, .Personal-info, .Education , .Education-info, .Certification, .Certification-info {
-    left: 700px; /* 공통 x 위치 */
-}
-
+/* 개별 위치 적용 (이 부분은 % 또는 vw 단위로 조정 필요, 여기서는 예시로만 제공) */
+.Personal, .Personal-info, .Education , .Education-info, .Certification, .Certification-info,
 .Experience, .Experience-info, .Skills , .Skill-info {
-    left: 1090px; /* 공통 x 위치 */
+    left: 50%; /* 중앙 정렬을 위한 예시, 실제 값은 디자인에 맞게 조정 필요 */
 }
 
-.Personal, .Experience { top: 150px; }
-.Personal-info, .Experience-info { top: 220px; }
-.Education, .Skills{ top: 320px; } /* 실제 필요에 따라 조정 */
-.Education-info, .Skill-info { top: 356px; } /* 추가 정보에 따라 top 값을 조정 */
-.Certification { top: 480px; } /* 추가 정보에 따라 top 값을 조정 */
-.Certification-info{ top: 530px;}
+.Personal, .Experience, .Education, .Skills, .Certification,
+.Personal-info, .Experience-info, .Education-info, .Skill-info, .Certification-info {
+    top: 15%; /* 시작 위치를 상단으로부터 10%로 설정, 실제 값은 조정 필요 */
+}
 
 /* mind 텍스트 스타일 */
 .mind, .mind-info {
     position: absolute;
-    font-size: 13px;
+    font-size: 1vw;
     color: #036280;
     text-align: left;
 }
 
 .mind { 
-    top: 410px; 
-    left: 400px;
+    top: 45%; 
+    left: 24%;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 1.5vw;
 }
 
 .mind-info { 
-    top: 460px; 
-    left: 400px;
+    top: 52%; 
+    left: 24%;
+    font-size: 0.9vw;
 }
