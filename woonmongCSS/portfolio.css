@@ -1,4 +1,29 @@
 #portfolio {
-    background-color: #036280;
-    color: #FFFFFF; /* 폰트 색 변경 */
+    background-color: #012E4A; /* 포트폴리오 페이지의 배경색 설정 */
+    overflow-x: scroll; /* 가로 스크롤 가능하도록 설정 */
+    white-space: nowrap; /* 포트폴리오 페이지들이 한 줄로 나열되도록 설정 */
+}
+
+.portfolio-container {
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+  }
+  
+  .portfolio-page {
+    flex: none;
+    width: 100%; /* 또는 실제 페이지 너비에 맞게 조정 */
+    scroll-snap-align: start;
+  }
+  
+.prev, .next {
+    position: fixed; /* 또는 absolute; 포트폴리오 섹션 내에서만 작동하려면 relative 부모 내에서 absolute 사용 */
+    bottom: 20px; /* 하단에서 20px 떨어진 위치 */
+    /* 오른쪽 또는 왼쪽 정렬을 원한다면 추가적으로 설정 */
+}
+.next {
+    right: 20px; /* 오른쪽 하단에 위치 */
+}
+.prev {
+    right: 60px; /* 다음 버튼 옆에 위치 */
 }

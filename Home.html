@@ -10,9 +10,12 @@
   <link rel="stylesheet" href="woonmongCSS/common.css">
   <link rel="stylesheet" href="woonmongCSS/home.css">
   <link rel="stylesheet" href="woonmongCSS/about.css">
-  <link rel="stylesheet" href="woonmongCSS/experience.css">
   <link rel="stylesheet" href="woonmongCSS/portfolio.css">
   <link rel="stylesheet" href="woonmongCSS/contact.css">
+
+  <!-- JS 적용 -->
+  <script src="woonmongJS/portfolio.js"></script>
+  <script src="woonmongJS/headerColor.js"></script>
 
   <body>
     <header>
@@ -20,15 +23,15 @@
             <ul>
                 <li><a href="#home">HOME</a></li>
                 <li><a href="#about">ABOUT</a></li>
-                <li><a href="#experience">EXPERIENCE</a></li>
-                <li><a href="#portfolio">PORTFOLIO</a></li>
+                <li><a id="portfolio-tab" href="#portfolio">PORTFOLIO</a></li>
                 <li><a href="#contact">CONTACT</a></li>
             </ul>
         </nav>
     </header>
     <main>
+
         <!-- HOME 영역 -->
-        <section id="home">
+        <section id="home" data-background-color="#378BA4">
             <div class="home-content">
                 <div class="name-intro">
                     <h1>KIM SUNG JIN</h1>
@@ -40,10 +43,27 @@
             </div>
         </section>
         
-        <section id="about">AboutPage</section>
-        <section id="experience">ExperiencePage</section>
-        <section id="portfolio">PortfolioPage</section>
-        <section id="contact">ContactPage</section>
+        <section id="about" data-background-color="#FFFFFF">AboutPage</section>
+
+        <!-- Portfolio 영역 -->
+        <section id="portfolio" data-background-color="#012E4A">
+            <!-- PORTFOLIO 영역의 내용 -->
+            <div class="portfolio-container">
+                <!-- 포트폴리오 페이지들 -->
+                <div class="portfolio-page" id = "portfolio-tab" visible>포트폴리오 페이지 1</div>
+                <div class="portfolio-page">포트폴리오 페이지 2</div>
+                <div class="portfolio-page">포트폴리오 페이지 3</div>
+                <div class="portfolio-page">포트폴리오 페이지 4</div>
+                <!-- 추가된 포트폴리오 페이지 -->
+                <div class="portfolio-page">포트폴리오 페이지 5</div>
+                <div class="portfolio-page">포트폴리오 페이지 6</div>
+                <div class="portfolio-page">포트폴리오 페이지 7</div>
+            </div>
+            <button class="prev">＜</button>
+            <button class="next">＞</button>
+        </section>
+        
+        <section id="contact" data-background-color="#378BA4">ContactPage</section>
     </main>
     <footer>하단</footer>
   </body>
