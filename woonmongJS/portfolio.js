@@ -1,25 +1,37 @@
 document.addEventListener("DOMContentLoaded", function() {
     const portfolioContainer = document.querySelector('#portfolio .portfolio-container');
     let isDragging = false,
-        startPos = 0,
-        currentScrollLeft = 0;
-    let isScrolling = false;
+        startX = 0,
+        scrollLeft = 0;
+
     const prevButton = document.querySelector('#portfolio .prev');
     const nextButton = document.querySelector('#portfolio .next');
-    const portfolioTab = document.querySelector('#portfolio-tab');
-    const firstPortfolioPage = document.querySelector('.portfolio-page');
+    const pages = document.querySelectorAll('#portfolio .portfolio-page');
+    let currentPageIndex = 0; // 현재 페이지 인덱스
+    const totalPages = pages.length; // 총 페이지 수
+    let lastScrollTime = 0; // 마지막 스크롤 이벤트 시간
+
+    function updatePageVisibility() {
+        pages.forEach((page, index) => {
+            if (index === currentPageIndex) {
+                page.setAttribute('visible', true);
+            } else {
+                page.removeAttribute('visible');
+            }
+        });
+    }
 
     portfolioContainer.addEventListener('mousedown', (e) => {
         isDragging = true;
         startX = e.pageX - portfolioContainer.offsetLeft;
         scrollLeft = portfolioContainer.scrollLeft;
-        e.preventDefault(); // 드래그 시작 시 기본 이벤트 방지
     });
 
     portfolioContainer.addEventListener('mousemove', (e) => {
         if (!isDragging) return;
+        e.preventDefault();
         const x = e.pageX - portfolioContainer.offsetLeft;
-        const walk = (x - startX) * 3; // 드래그 속도를 조절합니다.
+        const walk = (x - startX) * 3; // 드래그 속도
         portfolioContainer.scrollLeft = scrollLeft - walk;
     });
 
@@ -31,76 +43,51 @@ document.addEventListener("DOMContentLoaded", function() {
         isDragging = false;
     });
 
-    // 포트폴리오 섹션 내에서 버튼의 표시 여부를 결정하는 함수
-    function toggleButtonsVisibility() {
-        const { top, bottom } = portfolioContainer.getBoundingClientRect();
-        if (top < window.innerHeight && bottom > 0) {
-            // 포트폴리오 섹션 내에 있을 때
-            prevButton.style.display = 'block';
-            nextButton.style.display = 'block';
-        } else {
-            // 포트폴리오 섹션을 벗어났을 때
-            prevButton.style.display = 'none';
-            nextButton.style.display = 'none';
-        }
-    }
-    
-
-    // 스크롤 이벤트 처리
+    // 스크롤 이벤트 처리 조정
     window.addEventListener('wheel', function(e) {
-        if (!isScrolling && e.deltaY > 0) { // 아래로 스크롤할 때만 작동
-            isScrolling = true;
-            scrollNextPage(); // 다음 페이지로 스크롤
-            setTimeout(() => {
-                isScrolling = false;
-            }, 500); // 500ms 후에 다시 스크롤 가능하도록 설정
+        const now = new Date().getTime();
+        const { deltaY } = e;
+        if (portfolioContainer.getBoundingClientRect().top < window.innerHeight && deltaY > 0 && currentPageIndex < totalPages - 1 && (now - lastScrollTime > 800)) {
+            e.preventDefault(); // 기본 스크롤 동작 방지
+            lastScrollTime = now;
+            scrollNextPage();
+        } else if (portfolioContainer.getBoundingClientRect().top < window.innerHeight && deltaY < 0 && currentPageIndex > 0 && (now - lastScrollTime > 800)) {
+            e.preventDefault(); // 기본 스크롤 동작 방지
+            lastScrollTime = now;
+            scrollPrevPage();
         }
     }, { passive: false });
 
-        // 이전 페이지로 이동하는 버튼의 이벤트 리스너
-        prevButton.addEventListener('click', function() {
-            portfolioContainer.scrollBy({ left: -window.innerWidth, behavior: 'smooth' });
-        });
-    
-        // 다음 페이지로 이동하는 버튼의 이벤트 리스너
-        nextButton.addEventListener('click', function() {
-            portfolioContainer.scrollBy({ left: window.innerWidth, behavior: 'smooth' });
-        });
-
-    // 다음 페이지로 스크롤하는 함수
     function scrollNextPage() {
-        const pages = document.querySelectorAll('#portfolio .portfolio-page');
-        const currentPage = document.querySelector('#portfolio .portfolio-page[visible]');
-        let nextPageIndex = Array.from(pages).indexOf(currentPage) + 1;
-
-        if (currentPage && nextPageIndex < pages.length) {
-            const nextPageOffset = pages[nextPageIndex].offsetLeft;
+        if (currentPageIndex < totalPages - 1) {
+            currentPageIndex++;
             portfolioContainer.scrollTo({
-                left: nextPageOffset,
+                left: portfolioContainer.offsetWidth * currentPageIndex,
                 behavior: 'smooth'
             });
-
-            // currentPage가 null이 아닐 때만 속성을 변경
-            currentPage.removeAttribute('visible');
-            pages[nextPageIndex].setAttribute('visible', true);
-        }        
+            updatePageVisibility();
+        }
     }
-    if (portfolioTab && firstPortfolioPage) {
-        portfolioTab.addEventListener('click', function() {
-            // 첫 번째 페이지로 스크롤
+
+    function scrollPrevPage() {
+        if (currentPageIndex > 0) {
+            currentPageIndex--;
             portfolioContainer.scrollTo({
-                left: firstPortfolioPage.offsetLeft,
+                left: portfolioContainer.offsetWidth * currentPageIndex,
                 behavior: 'smooth'
             });
-            // 모든 페이지의 visible 속성 제거 후 첫 번째 페이지만 visible 설정
-            document.querySelectorAll('.portfolio-page').forEach(page => {
-                page.removeAttribute('visible');
-            });
-            firstPortfolioPage.setAttribute('visible', true);
-        });
+            updatePageVisibility();
+        }
     }
 
-    // 페이지 로드 시 및 스크롤 시 버튼의 표시 여부를 업데이트
-    toggleButtonsVisibility();
-    document.addEventListener('scroll', toggleButtonsVisibility);
+    // 버튼 클릭 이벤트
+    prevButton.addEventListener('click', function() {
+        scrollPrevPage();
+    });
+
+    nextButton.addEventListener('click', function() {
+        scrollNextPage();
+    });
+
+    updatePageVisibility(); // 초기 페이지 가시성 업데이트
 });
