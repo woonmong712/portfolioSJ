@@ -11,6 +11,44 @@ document.addEventListener("DOMContentLoaded", function() {
     const totalPages = pages.length; // 총 페이지 수
     let lastScrollTime = 0; // 마지막 스크롤 이벤트 시간
 
+
+
+    function doSomething(scrollPos) {
+        // 스크롤 위치에 따라 버튼 가시성 업데이트
+        toggleButtonsVisibility();
+    }
+
+    window.addEventListener('scroll', function(e) {
+        lastKnownScrollPosition = window.scrollY;
+
+        if (!ticking) {
+            window.requestAnimationFrame(function() {
+                doSomething(lastKnownScrollPosition);
+                ticking = false;
+            });
+
+            ticking = true;
+        }
+    });
+
+    function toggleButtonsVisibility() {
+        const rect = portfolioContainer.getBoundingClientRect();
+        // 포트폴리오 섹션이 화면 내에 보일 때만 버튼을 보이게 함
+        if(rect.top < window.innerHeight && rect.bottom >= 0) {
+            prevButton.style.display = 'block';
+            nextButton.style.display = 'block';
+        } else {
+            prevButton.style.display = 'none';
+            nextButton.style.display = 'none';
+        }
+    }
+
+    // 스크롤 이벤트에 버튼 표시 여부 업데이트 기능 추가
+    window.addEventListener('scroll', toggleButtonsVisibility);
+
+    // 초기 상태에서도 버튼 가시성 확인
+    toggleButtonsVisibility();
+
     function updatePageVisibility() {
         pages.forEach((page, index) => {
             if (index === currentPageIndex) {
