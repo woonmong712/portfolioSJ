@@ -6,15 +6,18 @@
 
 .portfolio-container {
     display: flex;
-    overflow-x: scroll;
+    overflow-x: auto;
     scroll-snap-type: x mandatory;
-  }
-  
-  .portfolio-page {
-    flex: none;
-    width: 100%; /* 또는 실제 페이지 너비에 맞게 조정 */
+}
+
+.portfolio-page {
     scroll-snap-align: start;
-  }
+    flex-shrink: 0;
+    width: 100%; /* 화면 너비에 맞게 각 페이지를 설정합니다. */
+    height: 100vh; /* 뷰포트 높이에 맞게 각 페이지를 설정합니다. */
+    padding: 50px;
+    box-sizing: border-box;
+}
   
 .prev, .next {
     position: fixed; /* 또는 absolute; 포트폴리오 섹션 내에서만 작동하려면 relative 부모 내에서 absolute 사용 */
@@ -27,3 +30,28 @@
 .prev {
     right: 60px; /* 다음 버튼 옆에 위치 */
 }
+
+/* 첫 페이지의 세부 스타일 */
+#page1 h2 {
+    color: white;
+    font-size: 3rem;
+}
+
+#page1 .company, #page1 .personal {
+    color: white;
+}
+
+#page1 .company h3, #page1 .personal h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+#page1 .company ul, #page1 .personal ul {
+    list-style-type: none;
+}
+
+#page1 .company li, #page1 .personal li {
+    margin-bottom: 0.5rem;
+}
+
+

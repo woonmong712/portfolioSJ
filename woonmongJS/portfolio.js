@@ -1,10 +1,35 @@
 document.addEventListener("DOMContentLoaded", function() {
     const portfolioContainer = document.querySelector('#portfolio .portfolio-container');
+    let isDragging = false,
+        startPos = 0,
+        currentScrollLeft = 0;
     let isScrolling = false;
     const prevButton = document.querySelector('#portfolio .prev');
     const nextButton = document.querySelector('#portfolio .next');
     const portfolioTab = document.querySelector('#portfolio-tab');
     const firstPortfolioPage = document.querySelector('.portfolio-page');
+
+    portfolioContainer.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        startX = e.pageX - portfolioContainer.offsetLeft;
+        scrollLeft = portfolioContainer.scrollLeft;
+        e.preventDefault(); // 드래그 시작 시 기본 이벤트 방지
+    });
+
+    portfolioContainer.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        const x = e.pageX - portfolioContainer.offsetLeft;
+        const walk = (x - startX) * 3; // 드래그 속도를 조절합니다.
+        portfolioContainer.scrollLeft = scrollLeft - walk;
+    });
+
+    document.addEventListener('mouseup', () => {
+        isDragging = false;
+    });
+
+    portfolioContainer.addEventListener('mouseleave', () => {
+        isDragging = false;
+    });
 
     // 포트폴리오 섹션 내에서 버튼의 표시 여부를 결정하는 함수
     function toggleButtonsVisibility() {
@@ -19,6 +44,7 @@ document.addEventListener("DOMContentLoaded", function() {
             nextButton.style.display = 'none';
         }
     }
+    
 
     // 스크롤 이벤트 처리
     window.addEventListener('wheel', function(e) {
@@ -31,15 +57,15 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }, { passive: false });
 
-    // 이전 페이지로 이동하는 버튼의 이벤트 리스너
-    prevButton.addEventListener('click', function() {
-        portfolioContainer.scrollBy({ left: -window.innerWidth, behavior: 'smooth' });
-    });
-
-    // 다음 페이지로 이동하는 버튼의 이벤트 리스너
-    nextButton.addEventListener('click', function() {
-        portfolioContainer.scrollBy({ left: window.innerWidth, behavior: 'smooth' });
-    });
+        // 이전 페이지로 이동하는 버튼의 이벤트 리스너
+        prevButton.addEventListener('click', function() {
+            portfolioContainer.scrollBy({ left: -window.innerWidth, behavior: 'smooth' });
+        });
+    
+        // 다음 페이지로 이동하는 버튼의 이벤트 리스너
+        nextButton.addEventListener('click', function() {
+            portfolioContainer.scrollBy({ left: window.innerWidth, behavior: 'smooth' });
+        });
 
     // 다음 페이지로 스크롤하는 함수
     function scrollNextPage() {
@@ -59,7 +85,6 @@ document.addEventListener("DOMContentLoaded", function() {
             pages[nextPageIndex].setAttribute('visible', true);
         }        
     }
-
     if (portfolioTab && firstPortfolioPage) {
         portfolioTab.addEventListener('click', function() {
             // 첫 번째 페이지로 스크롤
