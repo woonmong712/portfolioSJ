@@ -1,77 +1,100 @@
+@font-face {
+  font-family: 'NEXON Lv1 Gothic OTF';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff')
+    format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: thegirlnextdoor;
+  src: url('./font/thegirlnextdoor.ttf');
+}
+
+/* root */
+:root {
+  --default--font: 'NexonLv1Gothic', sans-serif;
+  --white-color: #fff;
+  --black-color: #000;
+  --about-color: ;
+  --dark-blue-color: #012e4a;
+  --middle-blue-color: #036280;
+  --contact-color: #378ba4;
+}
+
 /* 공통적으로 적용되는 스타일 */
 body {
-    font-family: 'NexonLv1Gothic', Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+  font-family: var(--default--font);
+  margin: 0;
+  padding: 0;
 }
 
 /* common.css 수정 */
-
 header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 6.5%; /* 높이는 고정값을 유지 */
-    background-color: #378BA4;
-    z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 6.5%;
+  background-color: var(--dark-blue-color);
+  z-index: 1000;
 }
 
 nav {
-    max-width: 960px;
-    margin: 0 auto;
-    width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  width: 100%;
+  height: 70px;
 }
 
 nav ul {
-    list-style: none;
-    padding: 2%;
-    margin: 0;
-    display: flex;
-    justify-content: center; 
-    align-items: center;
-    height: 100%;
+  list-style: none;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 
 nav ul li {
-    margin: 0 15px;
+  margin: 0 15px;
 }
 
 nav ul li a {
-    text-decoration: none;
-    color: #E8EDE7;
-    font-size: 16px;
-    padding: 5px 10px;
-    border-radius: 15px;
-    transition: background-color 0.3s; /* 배경색 변경 시 부드러운 전환 효과를 위해 추가 */
+  text-decoration: none;
+  color: #e8ede7;
+  padding: 5px 10px;
+  border-radius: 15px;
+  transition: background-color 0.3s; /* 배경색 변경 시 부드러운 전환 효과를 위해 추가 */
 }
 
 /* 마우스 오버 및 포커스 상태에 배경색 변경 */
-nav ul li a:hover, nav ul li a:focus {
-    background-color: #036280;
-    color: #ffffff;
-    outline: none; /* 클릭 후 포커스 테두리 제거 */
+nav ul li a:hover,
+nav ul li a:focus {
+  background-color: #036280;
+  color: #ffffff;
+  outline: none; /* 클릭 후 포커스 테두리 제거 */
 }
 
 nav ul li a:focus {
-    background-color: transparent; /* 포커스 시 배경색 변경 없음 */
-    color: #E8EDE7; /* 포커스 시 기존 텍스트 색상 유지 */
-    outline: none; /* 클릭 후 포커스 테두리 제거 */
+  background-color: transparent; /* 포커스 시 배경색 변경 없음 */
+  color: #e8ede7; /* 포커스 시 기존 텍스트 색상 유지 */
+  outline: none; /* 클릭 후 포커스 테두리 제거 */
 }
 
 /* 각 페이지 . 공통 스타일 */
 section {
-    width: 100%;
-    min-height: 900px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: #E8EDE7; /* 기본 폰트 색 */
-    font-family: 'NexonLv1Gothic', sans-serif;
+  width: 100%;
+  min-height: 900px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #e8ede7; /* 기본 폰트 색 */
+  font-family: var(--default--font);
 }
 
 nav ul li a.active {
-    background-color: #036280; /* 활성 링크의 배경색 */
-    color: #ffffff; /* 활성 링크의 텍스트 색상 */
+  background-color: #036280; /* 활성 링크의 배경색 */
+  color: #ffffff; /* 활성 링크의 텍스트 색상 */
 }

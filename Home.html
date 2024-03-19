@@ -1,25 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>KIM SUNG JIN Portfolio Web Page</title>
-  </head>
+</head>
 
-  <!-- 웹 페이지 스타일 적용 -->
-  <link rel="stylesheet" href="woonmongCSS/common.css">
-  <link rel="stylesheet" href="woonmongCSS/home.css">
-  <link rel="stylesheet" href="woonmongCSS/about.css">
-  <link rel="stylesheet" href="woonmongCSS/portfolio.css">
-  <link rel="stylesheet" href="woonmongCSS/contact.css">
+<!-- 웹 페이지 스타일 적용 -->
+<link rel="stylesheet" href="woonmongCSS/style.css" />
 
-  <!-- JS 적용 -->
-  <script src="woonmongJS/PageScroll.js"></script>
-  <script src="woonmongJS/MenuSelect.js"></script>
-  <script src="woonmongJS/portfolio.js"></script>
-  <script src="woonmongJS/headerColor.js"></script>
+<!-- JS 적용 -->
+<script src="woonmongJS/page-scroll.js"></script>
+<script src="woonmongJS/menu-select.js"></script>
+<script src="woonmongJS/portfolio.js"></script>
+<script src="woonmongJS/header-color.js"></script>
 
-  <body>
+<body>
     <header>
         <nav>
             <ul>
@@ -32,130 +29,132 @@
     </header>
     <main>
 
-    <!-- HOME 영역 -->
-    <section id="home" class="home-section" data-background-color="#378BA4">
-        <div class="home-content">
-            <div class="name-intro">
-                <h1>KIM SUNG JIN</h1>
-                <div class="job-title">
-                    <h2>QA Engineer</h2>
+        <!-- HOME 영역 -->
+        <section id="home" class="home-section" data-background-color="#378BA4">
+            <div class="home-content">
+                <div class="name-intro">
+                    <h1>KIM SUNG JIN</h1>
+                    <div class="job-title">
+                        <h2>QA Engineer</h2>
+                    </div>
+                </div>
+                <div class="contact-info">
+                    <h2>CONTACT</h2>
+                    <p><strong>e-mail</strong><br>keita712@gmail.com</p>
+                    <p><strong>phone</strong><br>010-6313-9683</p>
+                    <p><strong>blog</strong><br>https://velog.io/@woonmong/posts</p>
+                    <p><strong>github</strong><br>https://github.com/woonmong712</p>
                 </div>
             </div>
-            <div class="contact-info">
-                <h2>CONTACT</h2>
-                <p><strong>e-mail</strong><br>keita712@gmail.com</p>
-                <p><strong>phone</strong><br>010-6313-9683</p>
-                <p><strong>blog</strong><br>https://velog.io/@woonmong/posts</p>
-                <p><strong>github</strong><br>https://github.com/woonmong712</p>
+        </section>
+
+
+        <!-- ABOUT 영역 -->
+        <section class="about-section" id="about" data-background-color="#FFFFFF">
+            <div class="profile-container">
+                <img src="sungjin_image.png" alt="김성진 프로필 이미지" class="profile-image">
+                <p class="motto">Do Whatever You Want</p>
+                <p class="motto-exp">내가 원하는 것이라면, 그게 무엇이든 <br>열정적으로 하는 것이 중요하다고 생각합니다.</p>
             </div>
-        </div>
-    </section>
-
-        
-<!-- ABOUT 영역 -->
-<section class="about-section" id="about" data-background-color="#FFFFFF">
-    <div class="profile-container">
-        <img src="sungjin_image.png" alt="김성진 프로필 이미지" class="profile-image">
-        <p class="motto">Do Whatever You Want</p>
-        <p class="motto-exp">내가 원하는 것이라면, 그게 무엇이든 <br>열정적으로 하는 것이 중요하다고 생각합니다.</p>
-    </div>
-    <div class="about-details-1">
-        <div class="profile">
-            <h3>김성진<br>(KIM SUNG JIN)</h3>
-            <p class="birthday">1992.07.12</p>
-            <p class="phone">010-6313-9683</p>
-            <p class="email"><a href="mailto:keita712@gmail.com">keita712@gmail.com</a></p>
-            <p class="blog"><a href="https://velog.io/@woonmong/posts">https://velog.io/@woonmong/posts</a></p>
-            <p class="github"><a href="https://github.com/woonmong712">https://github.com/woonmong712</a></p>
-        </div>
-        <div class="education">
-            <h3>EDUCATION</h3>
-            <p class="Education"><b>2024.02</b> QA 테스트 자동화 구축하고<br> QA 실무 역량 퀀텀 점프하기 : Selenium with Python<br>
-                <b>2023.09</b> Tableau 신병 훈련소 20기 과정<br>
-                <b>2023.04</b> ChatGPT X 소프트웨어 개발 : SW개발 생산성 혁명<br>
-                <b>2020.08</b> 애자일 입문 (Agile Fundamentals)<br>
-                <b>2018.11</b> 실무 중심의 테스트 기초 교육 (STA)</p>
-        </div>
-        <div class="certification">
-            <h3>CERTIFICATION</h3>
-            <p>2019.04 ISTQB FL 취득<br>
-                2009.02 JLPT 2급 취득</p>
-        </div>
-    </div>
-    <div class="about-details-2">
-        <div class="work-experience">
-            <h3>WORK<br>EXPERIENCE</h3>
-            <p class="work-experience-details"> <!-- 클래스 이름을 변경했습니다 -->
-                <b>2022.03 ~ 2023.09</b> 카카오VX (SQA팀 FA 클라이언트 파트 팀원)<br>
-                <b>2019.02 ~ 2022.02</b> (주)단비교육 (최고개발팀 대리 파트리더)<br>
-                <b>2016.11 ~ 2018.11</b> 골프존 네트웍스 (QA 2팀 매니저)
-            </p>
-        </div>
-        <div class="skills">
-            <h3>SKILLS</h3>
-            <p class="tools"><b>Tool</b></p>
-            <p class="tools-exp">Fiddler Jira Confluence<br> 
-                Excel Slack Excel notion<br></p>
-            <p class="skill"><b>Skill</b></p>
-            <p class="tolls-exp">python selenium Django</p>
-        </div>
-    </div>
-</section>
+            <div class="about-details-1">
+                <div class="profile">
+                    <h3>김성진<br>(KIM SUNG JIN)</h3>
+                    <p class="birthday">1992.07.12</p>
+                    <p class="phone">010-6313-9683</p>
+                    <p class="email"><a href="mailto:keita712@gmail.com">keita712@gmail.com</a></p>
+                    <p class="blog"><a href="https://velog.io/@woonmong/posts">https://velog.io/@woonmong/posts</a></p>
+                    <p class="github"><a href="https://github.com/woonmong712">https://github.com/woonmong712</a></p>
+                </div>
+                <div class="education">
+                    <h3>EDUCATION</h3>
+                    <p class="Education"><b>2024.02</b> QA 테스트 자동화 구축하고<br> QA 실무 역량 퀀텀 점프하기 : Selenium with Python<br>
+                        <b>2023.09</b> Tableau 신병 훈련소 20기 과정<br>
+                        <b>2023.04</b> ChatGPT X 소프트웨어 개발 : SW개발 생산성 혁명<br>
+                        <b>2020.08</b> 애자일 입문 (Agile Fundamentals)<br>
+                        <b>2018.11</b> 실무 중심의 테스트 기초 교육 (STA)
+                    </p>
+                </div>
+                <div class="certification">
+                    <h3>CERTIFICATION</h3>
+                    <p>2019.04 ISTQB FL 취득<br>
+                        2009.02 JLPT 2급 취득</p>
+                </div>
+            </div>
+            <div class="about-details-2">
+                <div class="work-experience">
+                    <h3>WORK<br>EXPERIENCE</h3>
+                    <p class="work-experience-details"> <!-- 클래스 이름을 변경했습니다 -->
+                        <b>2022.03 ~ 2023.09</b> 카카오VX (SQA팀 FA 클라이언트 파트 팀원)<br>
+                        <b>2019.02 ~ 2022.02</b> (주)단비교육 (최고개발팀 대리 파트리더)<br>
+                        <b>2016.11 ~ 2018.11</b> 골프존 네트웍스 (QA 2팀 매니저)
+                    </p>
+                </div>
+                <div class="skills">
+                    <h3>SKILLS</h3>
+                    <p class="tools"><b>Tool</b></p>
+                    <p class="tools-exp">Fiddler Jira Confluence<br>
+                        Excel Slack Excel notion<br></p>
+                    <p class="skill"><b>Skill</b></p>
+                    <p class="tolls-exp">python selenium Django</p>
+                </div>
+            </div>
+        </section>
 
 
-<!-- Portfolio 영역 -->
-<section id="portfolio" data-background-color="#012E4A">
-    <!-- PORTFOLIO 영역의 내용 -->
-    <div class="portfolio-container">
-        <!-- 포트폴리오 페이지 1 -->
-        <div class="portfolio-page" id="page1" visible>
-            <h2>PORTFOLIO</h2>
-            <!-- COMPANY 섹션 -->
-            <div class="company">
-                <h3>COMPANY</h3>
-                <ul>
-                    <li>카카오VX
+        <!-- Portfolio 영역 -->
+        <section id="portfolio" data-background-color="#012E4A">
+            <!-- PORTFOLIO 영역의 내용 -->
+            <div class="portfolio-container">
+                <!-- 포트폴리오 페이지 1 -->
+                <div class="portfolio-page" id="page1" visible>
+                    <h2>PORTFOLIO</h2>
+                    <!-- COMPANY 섹션 -->
+                    <div class="company">
+                        <h3>COMPANY</h3>
                         <ul>
-                            <li>Launcher QA</li>
-                            <li>Global Project</li>
+                            <li>카카오VX
+                                <ul>
+                                    <li>Launcher QA</li>
+                                    <li>Global Project</li>
+                                </ul>
+                            </li>
+                            <li>단비교육
+                                <ul>
+                                    <li>Launcher QA</li>
+                                </ul>
+                            </li>
                         </ul>
-                    </li>
-                    <li>단비교육
+                    </div>
+                    <!-- PERSONAL 섹션 -->
+                    <div class="personal">
+                        <h3>PERSONAL</h3>
                         <ul>
-                            <li>Launcher QA</li>
+                            <li>프로젝트명 외부 페이지</li>
+                            <li>기획/개발</li>
+                            <li>QA</li>
+                            <li>QA 자동화 실무 수강</li>
+                            <li>Output</li>
                         </ul>
-                    </li>
-                </ul>
+                    </div>
+                </div>
+                <!-- 포트폴리오 페이지 2 ~ 7 -->
+                <div class="portfolio-page">포트폴리오 페이지 2</div>
+                <div class="portfolio-page">포트폴리오 페이지 3</div>
+                <div class="portfolio-page">포트폴리오 페이지 4</div>
+                <div class="portfolio-page">포트폴리오 페이지 5</div>
+                <div class="portfolio-page">포트폴리오 페이지 6</div>
+                <div class="portfolio-page">포트폴리오 페이지 7</div>
             </div>
-            <!-- PERSONAL 섹션 -->
-            <div class="personal">
-                <h3>PERSONAL</h3>
-                <ul>
-                    <li>프로젝트명 외부 페이지</li>
-                    <li>기획/개발</li>
-                    <li>QA</li>
-                    <li>QA 자동화 실무 수강</li>
-                    <li>Output</li>
-                </ul>
-            </div>
-        </div>
-        <!-- 포트폴리오 페이지 2 ~ 7 -->
-        <div class="portfolio-page">포트폴리오 페이지 2</div>
-        <div class="portfolio-page">포트폴리오 페이지 3</div>
-        <div class="portfolio-page">포트폴리오 페이지 4</div>
-        <div class="portfolio-page">포트폴리오 페이지 5</div>
-        <div class="portfolio-page">포트폴리오 페이지 6</div>
-        <div class="portfolio-page">포트폴리오 페이지 7</div>
-    </div>
-    <!-- 이전/다음 버튼 -->
-    <button class="prev">＜</button>
-    <button class="next">＞</button>
-</section>
+            <!-- 이전/다음 버튼 -->
+            <button class="prev">＜</button>
+            <button class="next">＞</button>
+        </section>
 
 
-        
+
         <section id="contact" data-background-color="#378BA4">ContactPage</section>
     </main>
     <footer>하단</footer>
-  </body>
+</body>
+
 </html>
