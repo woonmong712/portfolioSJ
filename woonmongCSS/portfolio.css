@@ -1,57 +1,73 @@
 #portfolio {
-    background-color: #012E4A; /* 포트폴리오 페이지의 배경색 설정 */
-    overflow-x: scroll; /* 가로 스크롤 가능하도록 설정 */
-    white-space: nowrap; /* 포트폴리오 페이지들이 한 줄로 나열되도록 설정 */
+    background-color: #012E4A; /* 배경색 설정 */
+    color: white; /* 글자 색상 */
+    height: 100vh; /* 섹션의 높이를 화면 높이로 설정 */
+    display: flex; /* flexbox 레이아웃 적용 */
+    justify-content: space-between; /* 요소들을 양 끝으로 정렬 */
+    align-items: center; /* 세로 중앙 정렬 */
+    padding: 0 50px; /* 좌우 패딩 */
+    box-sizing: border-box; /* 패딩을 너비에 포함 */
 }
 
-.portfolio-container {
+.portfolio-sections {
     display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
+    width: 100%; /* 부모 컨테이너의 너비에 맞춤 */
+    max-width: 1200px; /* 최대 너비 설정 */
 }
 
-.portfolio-page {
-    scroll-snap-align: start;
-    flex-shrink: 0;
-    width: 100%; /* 화면 너비에 맞게 각 페이지를 설정합니다. */
-    height: 100vh; /* 뷰포트 높이에 맞게 각 페이지를 설정합니다. */
-    padding: 50px;
-    box-sizing: border-box;
-}
-  
-.prev, .next {
-    position: fixed; /* 또는 absolute; 포트폴리오 섹션 내에서만 작동하려면 relative 부모 내에서 absolute 사용 */
-    bottom: 20px; /* 하단에서 20px 떨어진 위치 */
-    /* 오른쪽 또는 왼쪽 정렬을 원한다면 추가적으로 설정 */
-}
-.next {
-    right: 20px; /* 오른쪽 하단에 위치 */
-}
-.prev {
-    right: 60px; /* 다음 버튼 옆에 위치 */
+.portfolio-title {
+    width: 30%; /* 제목 영역의 너비를 설정 */
+    text-align: left; /* 텍스트 왼쪽 정렬 */
+    padding-left: 20px; /* 제목과 왼쪽 경계 사이의 패딩 */
 }
 
-/* 첫 페이지의 세부 스타일 */
-#page1 h2 {
-    color: white;
-    font-size: 3rem;
+.company,
+.personal {
+    width: 35%; /* 각 섹션의 너비 설정 */
+    margin-right: 2.5%; /* 오른쪽 마진으로 간격 조정 */
 }
 
-#page1 .company, #page1 .personal {
-    color: white;
+.company h3,
+.personal h3 {
+    font-size: 2rem; /* 소제목 폰트 크기 */
+    margin-bottom: 1rem; /* 소제목 아래 마진 */
 }
 
-#page1 .company h3, #page1 .personal h3 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
+.company ul,
+.personal ul {
+    list-style-type: none; /* 리스트 마커 제거 */
+    padding: 0; /* 리스트 패딩 제거 */
+    margin: 0; /* 리스트 마진 제거 */
 }
 
-#page1 .company ul, #page1 .personal ul {
-    list-style-type: none;
+.company li,
+.personal li {
+    margin-bottom: 0.5rem; /* 리스트 아이템 간격 */
 }
 
-#page1 .company li, #page1 .personal li {
-    margin-bottom: 0.5rem;
+ul ul {
+    list-style-type: none; /* 중첩된 ul의 리스트 스타일 제거 */
+    padding-left: 20px; /* 하위 리스트의 왼쪽 패딩 추가 */
 }
 
+ul ul li::before {
+    content: "01"; /* 각 하위 리스트 항목 앞에 대시 추가 */
+    padding-right: 5px; /* 대시와 텍스트 사이의 간격 조정 */
+}
 
+/* 중첩된 ul을 ol로 변경하세요. 이 CSS는 ol에 대한 스타일을 정의합니다. */
+.portfolio-sections ol {
+    counter-reset: section; /* 각 ol마다 counter를 초기화합니다. */
+    list-style-type: none; /* 기본 마커를 제거합니다. */
+    padding-left: 0; /* 왼쪽 패딩을 제거합니다. */
+}
+
+.portfolio-sections ol li {
+    counter-increment: section; /* li 요소가 들어올 때마다 counter를 증가시킵니다. */
+    margin-bottom: 0.5rem; /* 아이템 간격 설정 */
+}
+
+.portfolio-sections ol li::before {
+    content: counter(section) ". "; /* counter 값을 표시합니다. */
+    padding-right: 5px; /* 번호와 텍스트 사이의 간격을 조정합니다. */
+}
