@@ -130,3 +130,31 @@ document.addEventListener("DOMContentLoaded", function() {
     setActiveTab();
     window.addEventListener('hashchange', setActiveTab);
 });
+
+// 리스트 항목을 클릭했을 때 호출될 함수
+function handlePortfolioItemClick(clickedItem) {
+    // 세부 내용을 표시하는 영역에 active 클래스 추가
+    const detailsElement = document.getElementById('portfolioDetails');
+    detailsElement.classList.add('active');
+
+    // 포트폴리오 섹션에 move-left 클래스 추가하여 왼쪽으로 이동시키기
+    const portfolioSections = document.querySelector('.portfolio-sections');
+    portfolioSections.classList.add('move-left');
+}
+
+// 모든 포트폴리오 리스트 항목에 클릭 이벤트 리스너 추가
+const portfolioItems = document.querySelectorAll('.portfolio-sections ol li, .portfolio-sections ul li');
+portfolioItems.forEach(item => {
+    item.addEventListener('click', function() {
+        handlePortfolioItemClick(this);
+    });
+});
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    // "hello" 메뉴 항목에 클릭 이벤트 리스너를 추가합니다.
+    document.getElementById('hello-menu').addEventListener('click', function(event) {
+        event.preventDefault(); // 기본 이벤트를 막습니다.
+        showHelloPage(); // "hello" 페이지 내용을 표시하는 함수를 호출합니다.
+    });
+});

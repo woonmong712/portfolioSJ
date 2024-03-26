@@ -108,37 +108,46 @@
     <div class="portfolio-title">
         <h1>PORTFOLIO</h1>
     </div>
-    <div class="portfolio-sections">
-        <!-- Company 섹션 -->
-        <div class="company">
-            <h3>COMPANY</h3>
-            <ol>
-                <li>카카오VX</li>
+    <div class="portfolio-content">
+        <div class="portfolio-sections">
+            <!-- Company 섹션 -->
+            <div class="company">
+                <h3>COMPANY</h3>
                 <ol>
-                    <li>Launcher QA</li>
-                    <li>FA Sensor/Camera 연동 QA</li>
-                    <li>FA Migration & Renewal QA</li>
+                    <li id="company-1">카카오VX
+                        <ol>
+                            <li id="company-1-1"><a id="hello-menu" href="#">Launcher QA</a></li>
+                            <li id="company-1-2">FA Sensor/Camera 연동 QA</li>
+                            <li id="company-1-3">FA Migration & Renewal QA</li>
+                        </ol>
+                    </li>
+                    <li id="company-2">단비교육
+                        <ol>
+                            <li id="company-2-1">윙크북스 QA</li>
+                            <li id="company-2-2">내부 프로세스 개선/개발 CS</li>
+                        </ol>
+                    </li>
                 </ol>
-                <li>단비교육</li>
-                <ol>
-                    <li>윙크북스 QA</li>
-                    <li>내부 프로세스 개선/개발 CS</li>
-                </ol>
-            </ol>
+            </div>
+            <!-- Personal 섹션 -->
+            <div class="personal">
+                <h3>PERSONAL</h3>
+                <ul>
+                    <li id="personal-1">프로젝트명 외부 페이지</li>
+                    <li id="personal-2">기획/개발</li>
+                    <li id="personal-3">QA</li>
+                    <li id="personal-4">QA 자동화 실무 수강</li>
+                    <li id="personal-5">Output</li>
+                </ul>
+            </div>
         </div>
-        <!-- Personal 섹션 -->
-        <div class="personal">
-            <h3>PERSONAL</h3>
-            <ul>
-                <li>프로젝트명 외부 페이지</li>
-                <li>기획/개발</li>
-                <li>QA</li>
-                <li>QA 자동화 실무 수강</li>
-                <li>Output</li>
-            </ul>
+        <!-- 상세 페이지 표시 영역, 초기에는 숨겨져 있음 -->
+        <div class="portfolio-details" id="portfolioDetails" style="display: none;">
+            <!-- 클릭한 항목의 상세 내용이 여기에 동적으로 채워넣을 예정 -->
         </div>
     </div>
 </section>
+
 
 
     <!-- contact section-->

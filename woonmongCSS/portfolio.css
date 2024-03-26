@@ -9,6 +9,13 @@
     box-sizing: border-box;
 }
 
+/* 포트폴리오 섹션 전체 스타일 */
+.portfolio-container {
+    display: flex;
+    flex-direction: row;
+    transition: all 0.5s ease; /* 부드러운 전환 효과 */
+}
+
 .portfolio-title {
     text-align: left;
     font-size: 2.5rem;
@@ -21,6 +28,39 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+}
+
+/* 세부 정보 영역 초기 스타일 */
+.portfolio-details {
+    width: 0; /* 초기에는 너비를 0으로 설정하여 숨김 */
+    overflow: hidden; /* 너비가 0일 때 내용이 넘치지 않도록 설정 */
+    transition: width 0.5s ease; /* 너비 변화에 부드러운 전환 효과 적용 */
+    background-color: #ffffff; /* 배경색 변경 */
+    color: #000000; /* 텍스트 색상 변경 */
+    margin-left: 20px; /* 좌측 마진 추가 */
+    padding: 20px; /* 내용이 있을 때 패딩 추가 */
+    box-sizing: border-box; /* 패딩을 너비에 포함 */
+}
+
+/* 클릭 시 세부 정보 영역이 확장되는 스타일 */
+.portfolio-details.active {
+    width: 50%; /* 세부 정보 영역의 너비를 50%로 설정하여 표시 */
+    overflow-y: auto; /* 내용이 많을 경우 스크롤 표시 */
+}
+
+/* 리스트 항목과 세부 정보 영역 사이의 전환 효과 */
+.portfolio-sections.active {
+    transform: translateX(-20%); /* 섹션을 왼쪽으로 이동 */
+}
+
+/* 왼쪽으로 이동하는 애니메이션 추가 */
+.move-left {
+    transform: translateX(-50%);
+}
+
+.portfolio-content {
+    display: flex;
+    justify-content: space-between;
 }
 
 .company, .personal {
