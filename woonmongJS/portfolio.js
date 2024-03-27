@@ -1,45 +1,42 @@
 document.addEventListener("DOMContentLoaded", function() {
+    // 선언부
     const portfolioContainer = document.querySelector('#portfolio .portfolio-container');
-    let isDragging = false,
-        startX = 0,
-        scrollLeft = 0,
-        lastKnownScrollPosition = 0,
-        ticking = false;
-
     const prevButton = document.querySelector('#portfolio .prev');
     const nextButton = document.querySelector('#portfolio .next');
     const pages = document.querySelectorAll('#portfolio .portfolio-page');
-    let currentPageIndex = 0; // 현재 페이지 인덱스
-    const totalPages = pages.length; // 총 페이지 수
-    let lastScrollTime = 0; // 마지막 스크롤 이벤트 시간
+    const tabs = document.querySelectorAll('nav ul li a');
+    
+    let currentPageIndex = 0;
+    let isDragging = false;
+    let startX = 0;
+    let scrollLeft = 0;
+    let lastKnownScrollPosition = 0;
+    let ticking = false;
 
-    const tabs = document.querySelectorAll('nav ul li a'); // 모든 탭 선택
-
-    // 활성 탭 업데이트 함수
-    function setActiveTab() {
-        tabs.forEach(tab => {
-            tab.classList.remove('active');
-        });
-        const activeTab = document.querySelector('nav ul li a[href="' + window.location.hash + '"]');
-        if (activeTab) {
-            activeTab.classList.add('active');
-        }
-    }
-
-    // 모든 탭에 클릭 이벤트 리스너를 추가합니다.
+    // 탭 클릭 시 동작
     tabs.forEach(tab => {
         tab.addEventListener('click', function(event) {
-            event.preventDefault(); // 기본 이벤트 방지
-            tabs.forEach(t => t.classList.remove('active')); // 모든 탭의 active 클래스 제거
-            this.classList.add('active'); // 클릭된 탭에 active 클래스 추가
-            const href = this.getAttribute('href');
-            document.querySelector(href).scrollIntoView({ behavior: 'smooth' }); // 스크롤 이동
-            window.location.hash = href; // URL 해시 변경
+            event.preventDefault();
+            setActiveTab(this.getAttribute('href'));
         });
     });
 
-    // 스크롤 이벤트 최적화를 위한 RequestAnimationFrame
-    window.addEventListener('scroll', function(e) {
+    // 활성 탭 설정
+    function setActiveTab(hash) {
+        tabs.forEach(tab => tab.classList.remove('active'));
+        const activeTab = document.querySelector(`nav ul li a[href="${hash}"]`);
+        if (activeTab) {
+            activeTab.classList.add('active');
+        }
+        const targetSection = document.querySelector(hash);
+        if (targetSection) {
+            targetSection.scrollIntoView({ behavior: 'smooth' });
+            window.location.hash = hash;
+        }
+    }
+
+    // 스크롤 최적화
+    window.addEventListener('scroll', function() {
         lastKnownScrollPosition = window.scrollY;
         if (!ticking) {
             window.requestAnimationFrame(function() {
@@ -50,111 +47,81 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    // 버튼 표시 상태를 토글하는 함수
+    // 버튼 가시성 토글
     function toggleButtonsVisibility(scrollPos) {
-        const rect = portfolioContainer.getBoundingClientRect();
-        if(rect.top < window.innerHeight && rect.bottom >= 0) {
-            prevButton.style.display = 'block';
-            nextButton.style.display = 'block';
-        } else {
-            prevButton.style.display = 'none';
-            nextButton.style.display = 'none';
-        }
+        // 버튼 가시성 조절 로직
     }
 
-    // 초기 상태에서도 버튼 가시성을 설정합니다.
-    toggleButtonsVisibility();
-
-    // 페이지 가시성 업데이트 함수
+    // 페이지 가시성 업데이트
     function updatePageVisibility() {
         pages.forEach((page, index) => {
             page.style.display = index === currentPageIndex ? 'block' : 'none';
         });
     }
 
-    // 마우스 이벤트 핸들러
-    portfolioContainer.addEventListener('mousedown', (e) => {
-        isDragging = true;
-        startX = e.pageX - portfolioContainer.offsetLeft;
-        scrollLeft = portfolioContainer.scrollLeft;
+    // 초기 상태 설정
+    toggleButtonsVisibility();
+    updatePageVisibility();
+    setActiveTab(window.location.hash || '#home');
+
+    // 해시 변경 감지
+    window.addEventListener('hashchange', () => {
+        setActiveTab(window.location.hash);
     });
 
-    portfolioContainer.addEventListener('mousemove', (e) => {
-        if (!isDragging) return;
-        e.preventDefault();
-        const x = e.pageX - portfolioContainer.offsetLeft;
-        const walk = (x - startX) * 3;
-        portfolioContainer.scrollLeft = scrollLeft - walk;
-    });
-
-    document.addEventListener('mouseup', () => {
-        isDragging = false;
-    });
-
-    portfolioContainer.addEventListener('mouseleave', () => {
-        isDragging = false;
-    });
-
-    // 다음 페이지 스크롤 함수
-    function scrollNextPage() {
-        if (currentPageIndex < totalPages - 1) {
-            currentPageIndex++;
-            portfolioContainer.scrollTo({
-                left: portfolioContainer.offsetWidth * currentPageIndex,
-                behavior: 'smooth'
-            });
-            updatePageVisibility();
-        }
-    }
-
-    // 이전 페이지 스크롤 함수
-    function scrollPrevPage() {
-        if (currentPageIndex > 0) {
-            currentPageIndex--;
-            portfolioContainer.scrollTo({
-                left: portfolioContainer.offsetWidth * currentPageIndex,
-                behavior: 'smooth'
-            });
-            updatePageVisibility();
-        }
-    }
-
-    // 버튼 클릭 이벤트 핸들러
+    // 이벤트 핸들러
     prevButton.addEventListener('click', scrollPrevPage);
     nextButton.addEventListener('click', scrollNextPage);
 
-    // 페이지 로드 시 초기 페이지 가시성 설정
-    updatePageVisibility();
+    // 세부 항목 클릭 이벤트
+    document.querySelectorAll('.portfolio-sections ol li, .portfolio-sections ul li').forEach(item => {
+        item.addEventListener('click', function() {
+            handlePortfolioItemClick(this);
+        });
+    });
 
-    // 페이지 로드 및 해시 변경 시 활성 탭 업데이트
-    setActiveTab();
-    window.addEventListener('hashchange', setActiveTab);
-});
-
-// 리스트 항목을 클릭했을 때 호출될 함수
-function handlePortfolioItemClick(clickedItem) {
-    // 세부 내용을 표시하는 영역에 active 클래스 추가
-    const detailsElement = document.getElementById('portfolioDetails');
-    detailsElement.classList.add('active');
-
-    // 포트폴리오 섹션에 move-left 클래스 추가하여 왼쪽으로 이동시키기
-    const portfolioSections = document.querySelector('.portfolio-sections');
-    portfolioSections.classList.add('move-left');
-}
-
-// 모든 포트폴리오 리스트 항목에 클릭 이벤트 리스너 추가
-const portfolioItems = document.querySelectorAll('.portfolio-sections ol li, .portfolio-sections ul li');
-portfolioItems.forEach(item => {
-    item.addEventListener('click', function() {
-        handlePortfolioItemClick(this);
+    document.getElementById('hello-menu').addEventListener('click', function(event) {
+        event.preventDefault();
+        showHelloPage();
     });
 });
 
+// 상세 페이지를 표시하는 함수
+function showPortfolioDetail(itemId) {
+    const detailsElement = document.getElementById('portfolioDetails');
+    // 상세 페이지 내용을 설정하는 부분입니다.
+    // 이 부분에서 실제 데이터를 기반으로 HTML 내용을 생성하거나
+    // 서버로부터 데이터를 가져와서 표시할 수 있습니다.
+    const detailContent = `<h2>Details for ${itemId}</h2><p>여기에 '${itemId}'에 대한 상세 내용을 표시합니다.</p>`;
+    
+    // detailsElement의 HTML을 새로운 내용으로 채웁니다.
+    detailsElement.innerHTML = detailContent;
+    
+    // detailsElement를 보이게 합니다.
+    detailsElement.style.display = 'block';
+}
 
-document.addEventListener('DOMContentLoaded', function () {
-    // "hello" 메뉴 항목에 클릭 이벤트 리스너를 추가합니다.
-    document.getElementById('hello-menu').addEventListener('click', function(event) {
-        event.preventDefault(); // 기본 이벤트를 막습니다.
-        showHelloPage(); // "hello" 페이지 내용을 표시하는 함수를 호출합니다.
+// 모든 포트폴리오 리스트 항목에 클릭 이벤트 리스너를 추가합니다.
+document.querySelectorAll('.portfolio-sections ol li, .portfolio-sections ul li').forEach(item => {
+    item.addEventListener('click', function() {
+        // 클릭된 항목의 id를 사용하여 상세 내용을 표시합니다.
+        showPortfolioDetail(this.id);
+    });
+});
+
+document.querySelectorAll('.portfolio-sections ol li > ol li').forEach(item => {
+    item.addEventListener('click', function() {
+        // 모든 상세 페이지를 숨깁니다.
+        document.querySelectorAll('.portfolio-page').forEach(page => {
+            page.classList.remove('active');
+        });
+        
+        // 클릭된 항목에 해당하는 상세 페이지를 표시합니다.
+        const pageId = this.id + '-page';
+        const pageElement = document.getElementById(pageId);
+        if (pageElement) {
+            pageElement.classList.add('active');
+            document.querySelector('.portfolio-pages-container').style.display = 'block'; // 상세 페이지 컨테이너를 보이게 합니다.
+        }
     });
 });

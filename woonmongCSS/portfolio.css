@@ -53,6 +53,25 @@
     transform: translateX(-20%); /* 섹션을 왼쪽으로 이동 */
 }
 
+.portfolio-pages-container {
+    display: none; /* 초기 상태에서 상세 페이지들은 보이지 않음 */
+    flex-direction: column;
+    align-items: center;
+}
+
+.portfolio-page {
+    display: none; /* 개별 페이지도 초기 상태에서는 보이지 않음 */
+    width: 100vw; /* 또는 실제 페이지 크기에 맞게 조정 */
+    /* 필요한 추가 스타일링 */
+}
+
+/* 활성화된 상세 페이지 스타일 */
+.portfolio-page.active {
+    display: block;
+}
+
+
+
 /* 왼쪽으로 이동하는 애니메이션 추가 */
 .move-left {
     transform: translateX(-50%);
